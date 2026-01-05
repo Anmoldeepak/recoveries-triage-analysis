@@ -1,0 +1,8 @@
+SELECT
+    m.duplicate_flag,
+    COUNT(*) AS accounts,
+    SUM(a.balance) AS total_balance
+FROM migration_status m
+JOIN accounts a
+  ON m.account_id = a.account_id
+GROUP BY m.duplicate_flag;
